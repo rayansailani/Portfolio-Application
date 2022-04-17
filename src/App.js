@@ -1,7 +1,6 @@
-import * as React from "react";
+import { React, useState } from "react";
 import { ThemeProvider, useTheme, createTheme } from "@mui/material/styles";
 import { Container, CssBaseline, Typography } from "@mui/material";
-import { amber, deepOrange, grey } from "@mui/material/colors";
 import NavBar from "./Components/Navbar";
 
 const getDesignTokens = (mode) => ({
@@ -41,24 +40,30 @@ const getDesignTokens = (mode) => ({
       secondary: "#0969da",
     },
   },
+  typography: {
+    fontFamily: ["Open Sans", "Roboto", "Helvetica"].join(","),
+  },
 });
 
 const App = () => {
-  const theme = useTheme();
-  return (
-    <Container maxWidth="xl">
-      <NavBar />
-    </Container>
+  const [darkMode, setDarkMode] = useState(false);
+  const darkModeTheme = createTheme(
+    getDesignTokens(darkMode ? "dark" : "light")
   );
-};
 
-const darkModeTheme = createTheme(getDesignTokens("dark"));
+  const toggleDarkMode = () => {
+    setDarkMode((prev) => {
+      return !prev;
+    });
+  };
 
-export default function DarkThemeWithCustomPalette() {
   return (
     <ThemeProvider theme={darkModeTheme}>
       <CssBaseline />
-      <App />
+      <Container maxWidth="xl" sx={{ margin: 0, padding: "0 !important" }}>
+        <NavBar toggleDarkMode={toggleDarkMode} />
+      </Container>
     </ThemeProvider>
   );
-}
+};
+export default App;
