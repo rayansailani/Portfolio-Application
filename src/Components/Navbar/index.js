@@ -2,15 +2,17 @@ import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
-import GitHubIcon from "@mui/icons-material/GitHub";
+import LaptopIcon from "@mui/icons-material/Laptop";
 import MuiSwitch from "../Switch";
 
 const NavBar = ({ toggleDarkMode }) => {
   return (
     <Box style={{ flexGrow: 1 }}>
-      <AppBar position="static" sx={{ background: "#24292F !important" }}>
+      <AppBar
+        position="static"
+        sx={{ background: "#24292F !important", minWidth: "100vw !important" }}
+      >
         <Toolbar>
           <IconButton
             size="large"
@@ -19,14 +21,14 @@ const NavBar = ({ toggleDarkMode }) => {
             aria-label="menu"
             sx={{ mr: 2 }}
           >
-            <GitHubIcon style={{ color: "white" }} />
+            <LaptopIcon style={{ color: "white" }} />
           </IconButton>
           <Typography
             variant="h6"
             component="div"
             sx={{ flexGrow: 1, color: "white" }}
           >
-            Mohammed Rayan Sailani
+            Rayan Sailani
           </Typography>
           <MuiSwitch toggleDarkMode={toggleDarkMode} />
         </Toolbar>
