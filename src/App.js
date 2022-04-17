@@ -1,6 +1,6 @@
 import { React, useState } from "react";
-import { ThemeProvider, useTheme, createTheme } from "@mui/material/styles";
-import { Container, CssBaseline, Typography } from "@mui/material";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
+import { Container, CssBaseline } from "@mui/material";
 import NavBar from "./Components/Navbar";
 
 const getDesignTokens = (mode) => ({
